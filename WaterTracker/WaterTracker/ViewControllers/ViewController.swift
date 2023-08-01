@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     let waterView = WaterView()
     
+    let waterManager = WaterDataManager()
+    
     override func loadView() {
         self.view = waterView
     }
@@ -20,6 +22,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-
+    func setupTarget() {
+        waterView.glassWaterButton.addTarget(self, action: #selector(glassButtonPressed), for: .touchUpInside)
+        waterView.bottleWaterButton.addTarget(self, action: #selector(bottleButtonPressed), for: .touchUpInside)
+        waterView.flaskWaterButton.addTarget(self, action: #selector(flaskButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func glassButtonPressed() {
+        
+    }
+    
+    @objc func bottleButtonPressed() {
+        
+    }
+    
+    @objc func flaskButtonPressed() {
+        
+    }
 }
 
