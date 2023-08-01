@@ -7,7 +7,7 @@
 
 import Foundation
 
-class WaterDataManager {
+final class WaterDataManager {
     
     // MARK: - PROPERTIES
     
@@ -15,7 +15,7 @@ class WaterDataManager {
     // 목표 물의 양, 오늘 마신 물의 양, 최근 업데이트 날짜를 저장
     let userDefaults = UserDefaults.standard
     
-    var waterIntakeGoalPerDay: Int
+    private var waterIntakeGoalPerDay: Int
     
     // 오늘 날짜(일)를 반환하는 계산 프로퍼티
     var today: Int {
@@ -41,8 +41,11 @@ class WaterDataManager {
         // 날짜가 바뀌면 (최근 업데이트 날짜와 오늘 날짜가 같지 않다면)
         let lastUpdateDate = getLastUpdateDate()
         // 오늘 하루 물 섭취량을 0으로 초기화하기
+        print(lastUpdateDate, today)
         if lastUpdateDate != today {
+            print("초기화")
             userDefaults.setValue(0, forKey: "todayWaterIntakeAmount")
+            userDefaults.synchronize()
         }
     }
     
@@ -60,6 +63,12 @@ class WaterDataManager {
         return todayWaterIntakeAmount
     }
     
+    /// 일일 목표 마실 물의 양을 반환합니다.
+    /// - Returns: 일일 목표 마실 물의 양(ml)
+    func getWaterIntakeGoalPerDay() -> Int {
+        return waterIntakeGoalPerDay
+    }
+    
     /// 일일 목표 마실 물의 양을 업데이트합니다.
     /// - Parameter goal: 일일 목표 마실 물의 양(ml)
     /// - Returns: 업데이트 성공 여부
@@ -71,6 +80,7 @@ class WaterDataManager {
         }
         // UserDefaults에 값 저장하기
         userDefaults.setValue(goal, forKey: "waterIntakeGoalPerDay")
+        userDefaults.synchronize()
         // 목표 설정 성공
         return true
     }
@@ -84,6 +94,14 @@ class WaterDataManager {
         let newWaterIntakeAmount = currentWaterIntakeAmount + intakeAmount
         // UserDefaults에 값 저장하기
         userDefaults.setValue(newWaterIntakeAmount, forKey: "todayWaterIntakeAmount")
+        userDefaults.setValue(today, forKey: "lastUpdateDate")
+        userDefaults.synchronize()
+        print(today)
+        print(newWaterIntakeAmount)
+    }
+    
+    func reset() {
+        userDefaults.setValue(0, forKey: "todayWaterIntakeAmount")
     }
     
 }

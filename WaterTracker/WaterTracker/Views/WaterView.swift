@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WaterView: UIView {
+final class WaterView: UIView {
     
     // MARK: - LABELS
     
@@ -156,7 +156,7 @@ class WaterView: UIView {
     
     // MARK: - UIVEIW
     
-    var waterHeightView: UIView = {
+    var waterProgressView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.systemBlue
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -165,8 +165,10 @@ class WaterView: UIView {
     
     // MARK: - PROPERTIES
     
-    let buttonWidth: CGFloat = 80.0
-    let buttonHeight: CGFloat = 80.0
+    private let buttonWidth: CGFloat = 80.0
+    private let buttonHeight: CGFloat = 80.0
+    
+    lazy var waterProgressViewHeightConstraint: NSLayoutConstraint = waterProgressView.heightAnchor.constraint(equalToConstant: 0)
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -179,7 +181,7 @@ class WaterView: UIView {
 
     func configureUI() {
         backgroundColor = UIColor.white
-        [waterHeightView, labelStackView, waterButtonsStackView].forEach { self.addSubview($0) }
+        [waterProgressView, labelStackView, waterButtonsStackView].forEach { self.addSubview($0) }
     }
     
     override func updateConstraints() {
@@ -206,10 +208,10 @@ class WaterView: UIView {
         ])
         
         NSLayoutConstraint.activate([
-            waterHeightView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
-            waterHeightView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            waterHeightView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            waterHeightView.topAnchor.constraint(equalTo: self.topAnchor, constant: 500)
+            waterProgressView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: 0),
+            waterProgressView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
+            waterProgressView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
+            waterProgressViewHeightConstraint
         ])
         
         super.updateConstraints()
