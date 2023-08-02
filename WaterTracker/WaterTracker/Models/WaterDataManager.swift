@@ -43,6 +43,7 @@ final class WaterDataManager {
         // 오늘 하루 물 섭취량을 0으로 초기화하기
         if lastUpdateDate != today {
             userDefaults.setValue(0, forKey: "todayWaterIntakeAmount")
+            userDefaults.synchronize()
         }
     }
     
@@ -77,6 +78,7 @@ final class WaterDataManager {
         }
         // UserDefaults에 값 저장하기
         userDefaults.setValue(goal, forKey: "waterIntakeGoalPerDay")
+        userDefaults.synchronize()
         // 목표 설정 성공
         return true
     }
@@ -91,10 +93,12 @@ final class WaterDataManager {
         // UserDefaults에 값 저장하기
         userDefaults.setValue(newWaterIntakeAmount, forKey: "todayWaterIntakeAmount")
         userDefaults.setValue(today, forKey: "lastUpdateDate")
+        userDefaults.synchronize()
     }
     
     func reset() {
         userDefaults.setValue(0, forKey: "todayWaterIntakeAmount")
+        userDefaults.synchronize()
     }
     
 }

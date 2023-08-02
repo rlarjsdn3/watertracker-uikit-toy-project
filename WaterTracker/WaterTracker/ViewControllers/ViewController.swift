@@ -29,8 +29,8 @@ final class ViewController: UIViewController {
     override func viewDidLayoutSubviews() {
         updateView()
         
-        // NOTE - 위 메소드를 viewDidLoad() 내에 호출하면 뷰(view)의 전체 높이를 제대로 가져오지 못한다.
-        //      - 왜냐하면, viewDidLoad() 메서드는 뷰가 메모리에 로드된 직 후에 호출되는데, 이 시점에는 뷰의 크기가 아직 정해지지 않을 수 있다.
+        // NOTE - 위 메소드를 viewDidLoad() 내에 호출하면 뷰(view)의 전체 높이를 제대로 가져오지 못하빈다.
+        //      - 왜냐하면, viewDidLoad() 메서드는 뷰가 메모리에 로드된 직 후에 호출되는데, 이 시점에는 뷰의 크기가 아직 정해지지 않을 수 있기 때문입니다.
     }
 
     func setupTarget() {
@@ -72,7 +72,8 @@ final class ViewController: UIViewController {
     }
     
     @objc func bottleButtonPressed() {
-        
+        waterManager.setTodayWaterIntake(200)
+        updateView()
     }
     
     @objc func flaskButtonPressed() {
@@ -91,6 +92,9 @@ final class ViewController: UIViewController {
 
 extension ViewController: SettingsDelegate {
     func didPressedOkButton() {
-        updateView()
+        self.updateView()
+        
+        // NOTE: - UserDefaults 시스템을 사용한 탓인지, 목표를 바꿔도 뷰에 바로 반영이 되지 않습니다.
+        //       - CoreData나 Realm과 같은 DB를 사용해야 하나 작은 프로젝트임을 감안하여 굳이 적용하지 않았습니다.
     }
 }
