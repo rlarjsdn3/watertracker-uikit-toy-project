@@ -55,7 +55,10 @@ final class ViewController: UIViewController {
     }
     
     func updateDescriptionLabel() {
+        let waterIntakeGoalPerDay = waterManager.getWaterIntakeGoalPerDay()
+        let todayWaterIntakeAmount = waterManager.getTodayWaterIntake()
         
+        self.waterView.descriptionLabel.text = "하루 목표 \(waterIntakeGoalPerDay)ml 중 \(todayWaterIntakeAmount)ml를 마셨습니다."
     }
     
     @objc func glassButtonPressed() {

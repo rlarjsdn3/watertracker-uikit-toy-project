@@ -11,6 +11,16 @@ final class WaterView: UIView {
     
     // MARK: - LABELS
     
+    private lazy var settingsButton: UIButton = {
+        let button = UIButton(type: .system)
+        let gearshape = UIImage(systemName: "gearshape")?.withRenderingMode(.alwaysTemplate)
+        button.setImage(gearshape, for: .normal)
+        button.tintColor = UIColor.black
+        button.translatesAutoresizingMaskIntoConstraints = false
+        button.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     var dateLabel: UILabel = {
         let label = UILabel()
         label.text = Date.now.toFormat("M월 d일")
@@ -181,10 +191,15 @@ final class WaterView: UIView {
 
     func configureUI() {
         backgroundColor = UIColor.white
-        [waterProgressView, labelStackView, waterButtonsStackView].forEach { self.addSubview($0) }
+        [settingsButton, waterProgressView, labelStackView, waterButtonsStackView].forEach { self.addSubview($0) }
     }
     
     override func updateConstraints() {
+        
+        NSLayoutConstraint.activate([
+            settingsButton.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 10),
+            settingsButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -30)
+        ])
         
         NSLayoutConstraint.activate([
             labelStackView.topAnchor.constraint(equalTo: self.safeAreaLayoutGuide.topAnchor, constant: 50),
@@ -216,5 +231,9 @@ final class WaterView: UIView {
         
         super.updateConstraints()
         
+    }
+    
+    @objc func settingsButtonPressed() {
+        print("Settings Button Pressed")
     }
 }
