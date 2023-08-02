@@ -11,7 +11,7 @@ final class ViewController: UIViewController {
 
     let waterView = WaterView()
     
-    let waterManager = WaterDataManager()
+    var waterManager: WaterDataManager!
     
     override func loadView() {
         self.view = waterView
@@ -20,6 +20,10 @@ final class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTarget()
+        
+        if let appDeleagte = UIApplication.shared.delegate as? AppDelegate {
+            waterManager = appDeleagte.waterManager
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -33,6 +37,7 @@ final class ViewController: UIViewController {
         waterView.glassWaterButton.addTarget(self, action: #selector(glassButtonPressed), for: .touchUpInside)
         waterView.bottleWaterButton.addTarget(self, action: #selector(bottleButtonPressed), for: .touchUpInside)
         waterView.flaskWaterButton.addTarget(self, action: #selector(flaskButtonPressed), for: .touchUpInside)
+        waterView.settingsButton.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
     }
     
     func updateView() {
@@ -74,5 +79,18 @@ final class ViewController: UIViewController {
         waterManager.reset()
         updateView()
     }
+    
+    @objc func settingsButtonPressed() {
+        let settingsVC = SettingsViewController()
+        settingsVC.delegate = self
+        settingsVC.waterIntakeGoalPerDay = waterManager.getWaterIntakeGoalPerDay()
+        settingsVC.modalPresentationStyle = .pageSheet
+        self.present(settingsVC, animated: true)
+    }
 }
 
+extension ViewController: SettingsDelegate {
+    func didPressedOkButton() {
+        updateView()
+    }
+}

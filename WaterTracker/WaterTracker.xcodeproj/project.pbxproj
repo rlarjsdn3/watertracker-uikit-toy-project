@@ -16,6 +16,8 @@
 		9E8FCDE22A78CD9300A78BED /* WaterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE12A78CD9300A78BED /* WaterView.swift */; };
 		9E8FCDE62A78D42900A78BED /* DateExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE52A78D42900A78BED /* DateExtension.swift */; };
 		9E8FCDE82A78E0CB00A78BED /* WaterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE72A78E0CB00A78BED /* WaterDataManager.swift */; };
+		9EBF376C2A79FF3B007B5329 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF376B2A79FF3B007B5329 /* SettingsView.swift */; };
+		9EBF376E2A79FFC2007B5329 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF376D2A79FFC2007B5329 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		9E8FCDE12A78CD9300A78BED /* WaterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterView.swift; sourceTree = "<group>"; };
 		9E8FCDE52A78D42900A78BED /* DateExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DateExtension.swift; path = WaterTracker/Views/DateExtension.swift; sourceTree = SOURCE_ROOT; };
 		9E8FCDE72A78E0CB00A78BED /* WaterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDataManager.swift; sourceTree = "<group>"; };
+		9EBF376B2A79FF3B007B5329 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		9EBF376D2A79FFC2007B5329 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 			isa = PBXGroup;
 			children = (
 				9E8FCDCF2A78CB2800A78BED /* ViewController.swift */,
+				9EBF376D2A79FFC2007B5329 /* SettingsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -88,6 +93,7 @@
 			children = (
 				9E8FCDD12A78CB2800A78BED /* Main.storyboard */,
 				9E8FCDE12A78CD9300A78BED /* WaterView.swift */,
+				9EBF376B2A79FF3B007B5329 /* SettingsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -179,12 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EBF376C2A79FF3B007B5329 /* SettingsView.swift in Sources */,
 				9E8FCDE22A78CD9300A78BED /* WaterView.swift in Sources */,
 				9E8FCDE62A78D42900A78BED /* DateExtension.swift in Sources */,
 				9E8FCDD02A78CB2800A78BED /* ViewController.swift in Sources */,
 				9E8FCDCC2A78CB2800A78BED /* AppDelegate.swift in Sources */,
 				9E8FCDCE2A78CB2800A78BED /* SceneDelegate.swift in Sources */,
 				9E8FCDE82A78E0CB00A78BED /* WaterDataManager.swift in Sources */,
+				9EBF376E2A79FFC2007B5329 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,17 +11,16 @@ final class WaterView: UIView {
     
     // MARK: - LABELS
     
-    private lazy var settingsButton: UIButton = {
+    let settingsButton: UIButton = {
         let button = UIButton(type: .system)
         let gearshape = UIImage(systemName: "gearshape")?.withRenderingMode(.alwaysTemplate)
         button.setImage(gearshape, for: .normal)
         button.tintColor = UIColor.black
         button.translatesAutoresizingMaskIntoConstraints = false
-        button.addTarget(self, action: #selector(settingsButtonPressed), for: .touchUpInside)
         return button
     }()
     
-    var dateLabel: UILabel = {
+    let dateLabel: UILabel = {
         let label = UILabel()
         label.text = Date.now.toFormat("M월 d일")
         label.font = UIFont.systemFont(ofSize: 46, weight: .black)
@@ -29,9 +28,9 @@ final class WaterView: UIView {
         return label
     }()
     
-    var descriptionLabel: UILabel = {
+    let descriptionLabel: UILabel = {
         let label = UILabel()
-        label.text = "(description Label)" // TEMP
+        label.text = "(description Label)"
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -50,7 +49,7 @@ final class WaterView: UIView {
     
     // MARK: - BUTTONS
     
-    var glassWaterButton: UIButton = {
+    let glassWaterButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Glass"), for: .normal)
         button.backgroundColor = UIColor.white
@@ -64,7 +63,7 @@ final class WaterView: UIView {
         return button
     }()
     
-    var glassWaterLabel: UILabel = {
+    let glassWaterLabel: UILabel = {
         let label = UILabel()
         label.text = "100ml"
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -84,7 +83,7 @@ final class WaterView: UIView {
         return st
     }()
     
-    var bottleWaterButton: UIButton = {
+    let bottleWaterButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Bottle"), for: .normal)
         button.backgroundColor = UIColor.white
@@ -98,7 +97,7 @@ final class WaterView: UIView {
         return button
     }()
     
-    var bottleWaterLabel: UILabel = {
+    let bottleWaterLabel: UILabel = {
         let label = UILabel()
         label.text = "200ml"
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -118,7 +117,7 @@ final class WaterView: UIView {
         return st
     }()
     
-    var flaskWaterButton: UIButton = {
+    let flaskWaterButton: UIButton = {
         let button = UIButton(type: .custom)
         button.setImage(UIImage(named: "Flask"), for: .normal)
         button.backgroundColor = UIColor.white
@@ -132,7 +131,7 @@ final class WaterView: UIView {
         return button
     }()
     
-    var flaskWaterLabel: UILabel = {
+    let flaskWaterLabel: UILabel = {
         let label = UILabel()
         label.text = "500ml"
         label.font = UIFont.boldSystemFont(ofSize: 16)
@@ -166,7 +165,7 @@ final class WaterView: UIView {
     
     // MARK: - UIVEIW
     
-    var waterProgressView: UIView = {
+    let waterProgressView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor.systemBlue
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -189,7 +188,7 @@ final class WaterView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    func configureUI() {
+    private func configureUI() {
         backgroundColor = UIColor.white
         [settingsButton, waterProgressView, labelStackView, waterButtonsStackView].forEach { self.addSubview($0) }
     }
@@ -231,9 +230,5 @@ final class WaterView: UIView {
         
         super.updateConstraints()
         
-    }
-    
-    @objc func settingsButtonPressed() {
-        print("Settings Button Pressed")
     }
 }
