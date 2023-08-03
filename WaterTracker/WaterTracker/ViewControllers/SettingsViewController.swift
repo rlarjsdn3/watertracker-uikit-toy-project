@@ -56,7 +56,21 @@ final class SettingsViewController: UIViewController {
             dismiss(animated: true)
         // 실패한 경우
         } else {
-            dismiss(animated: true)
+            let minimumWaterIntakeTarget = AppSetting.minimumWaterIntakeTarget
+            let maximumWaterInatkeTarget = AppSetting.maximumWaterIntakeTarger
+            
+            let title = "목표 설정 실패"
+            let message = "목표를 \(minimumWaterIntakeTarget)~\(maximumWaterInatkeTarget)ml 사이로 설정해주세요."
+            
+            let alertVC = UIAlertController(
+                title: title,
+                message: message,
+                preferredStyle: .alert
+            )
+            let okButton = UIAlertAction(title: "확인", style: .default)
+            alertVC.addAction(okButton)
+            
+            present(alertVC, animated: true)
         }
     }
 }

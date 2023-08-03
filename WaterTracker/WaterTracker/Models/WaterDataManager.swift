@@ -71,8 +71,11 @@ final class WaterDataManager {
     /// - Parameter goal: 일일 목표 마실 물의 양(ml)
     /// - Returns: 업데이트 성공 여부
     func setWaterIntakeGoalPerDay(_ goal: Int) -> Bool {
-        // 일일 목표 마실 물의 양이 500~3,500ml가 아니라면
-        guard (goal >= 500 && goal <= 3_500) else {
+        let minimumWaterIntakeTarget = AppSetting.minimumWaterIntakeTarget
+        let maximumWaterInatkeTarget = AppSetting.maximumWaterIntakeTarger
+        
+        // 일일 목표 마실 물의 양이 (min)~(max) ml가 아니라면
+        guard (goal >= minimumWaterIntakeTarget && goal <= maximumWaterInatkeTarget) else {
             // 목표 설정 실패
             return false
         }

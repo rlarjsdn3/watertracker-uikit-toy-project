@@ -17,6 +17,7 @@
 		9E8FCDE82A78E0CB00A78BED /* WaterDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9E8FCDE72A78E0CB00A78BED /* WaterDataManager.swift */; };
 		9EBF376C2A79FF3B007B5329 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF376B2A79FF3B007B5329 /* SettingsView.swift */; };
 		9EBF376E2A79FFC2007B5329 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EBF376D2A79FFC2007B5329 /* SettingsViewController.swift */; };
+		9EC08A052A7B2E9800B7BFC0 /* AppSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC08A042A7B2E9800B7BFC0 /* AppSetting.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		9E8FCDE72A78E0CB00A78BED /* WaterDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaterDataManager.swift; sourceTree = "<group>"; };
 		9EBF376B2A79FF3B007B5329 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		9EBF376D2A79FFC2007B5329 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		9EC08A042A7B2E9800B7BFC0 /* AppSetting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSetting.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				9E8FCDDF2A78CD3700A78BED /* ViewControllers */,
 				9E8FCDE32A78D3D400A78BED /* Models */,
 				9E8FCDE42A78D41600A78BED /* Extensions  */,
+				9EC08A032A7B2E8100B7BFC0 /* Settings */,
 				9E8FCDD42A78CB2C00A78BED /* Assets.xcassets */,
 				9E8FCDD62A78CB2C00A78BED /* LaunchScreen.storyboard */,
 				9E8FCDD92A78CB2C00A78BED /* Info.plist */,
@@ -109,6 +112,14 @@
 				9E8FCDE52A78D42900A78BED /* DateExtension.swift */,
 			);
 			path = "Extensions ";
+			sourceTree = "<group>";
+		};
+		9EC08A032A7B2E8100B7BFC0 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				9EC08A042A7B2E9800B7BFC0 /* AppSetting.swift */,
+			);
+			path = Settings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 				9E8FCDE62A78D42900A78BED /* DateExtension.swift in Sources */,
 				9E8FCDD02A78CB2800A78BED /* ViewController.swift in Sources */,
 				9E8FCDCC2A78CB2800A78BED /* AppDelegate.swift in Sources */,
+				9EC08A052A7B2E9800B7BFC0 /* AppSetting.swift in Sources */,
 				9E8FCDCE2A78CB2800A78BED /* SceneDelegate.swift in Sources */,
 				9E8FCDE82A78E0CB00A78BED /* WaterDataManager.swift in Sources */,
 				9EBF376E2A79FFC2007B5329 /* SettingsViewController.swift in Sources */,
